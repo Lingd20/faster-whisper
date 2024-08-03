@@ -95,6 +95,8 @@ class TranscriptionInfo(NamedTuple):
     language_probability: float
     duration: float
     duration_after_vad: float
+    speech_chunks: List[dict]
+    sampling_rate: int
     all_language_probs: Optional[List[Tuple[str, float]]]
     transcription_options: TranscriptionOptions
     vad_options: VadOptions
@@ -1021,6 +1023,8 @@ class WhisperModel:
             language_probability=language_probability,
             duration=duration,
             duration_after_vad=duration_after_vad,
+            speech_chunks=speech_chunks,
+            sampling_rate=sampling_rate,
             transcription_options=options,
             vad_options=vad_parameters,
             all_language_probs=all_language_probs,
